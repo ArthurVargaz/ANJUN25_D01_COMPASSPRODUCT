@@ -1,37 +1,52 @@
-import mongoose from "mongoose";
+import mongoose, { Document } from "mongoose";
 // @ts-ignore
 import AutoIncrementFactory from "mongoose-sequence";
 
 const AutoIncrement = AutoIncrementFactory(mongoose);
 
-const productSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    required: true,
-    unique: true,
+export interface IProduct extends Document {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  quantity: number;
+  created_at: Date;
+  updated_at: Date;
+}
+
+const productSchema = new mongoose.Schema<IProduct>(
+  {
+    id: {
+      type: Number,
+      unique: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    quantity: {
+      type: Number,
+      required: true,
+    },
   },
-  name: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  quantity: {
-    type: Number,
-    required: true,
-  },
-  timestamps: {
-    createdAt: "created_at",
-    updatedAt: "updated_at",
-  },
-});
+  {
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    },
+  }
+);
 
 productSchema.plugin(AutoIncrement, { inc_field: "id" });
 
-export default mongoose.model("Product", productSchema);
+const Product = mongoose.model<IProduct>("Product", productSchema);
+
+export default Product;
