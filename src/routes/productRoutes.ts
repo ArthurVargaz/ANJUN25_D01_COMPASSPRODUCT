@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
 
     const savedProduct = await newProduct.save();
     return res.status(201).json(savedProduct);
-  } catch (error) {
+  } catch (error: any) {
     return res.status(500).json({
       errors: ["an internal server error occurred"],
     });
@@ -63,7 +63,7 @@ router.get("/:id", async (req, res) => {
     }
 
     return res.status(200).json(product);
-  } catch (error) {
+  } catch (error: any) {
     return res.status(500).json({
       errors: ["an internal server error occurred"],
     });
@@ -75,7 +75,7 @@ router.get("/", async (req, res) => {
     const products = await Product.find();
 
     res.status(200).json({ data: products });
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ errors: ["an internal server error occurred"] });
   }
 });
@@ -135,7 +135,25 @@ router.patch("/:id", async (req, res) => {
     await existingProduct.save();
 
     return res.status(204).send();
-  } catch (err) {
+  } catch (error: any) {
+    return res.status(500).json({
+      errors: ["an internal server error occurred"],
+    });
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const deletedProduct = await Product.findByIdAndDelete(id);
+
+    if (!deletedProduct) {
+      return res.status(404).json({ errors: "product not found" });
+    }
+
+    return res.status(204).send();
+  } catch (error: any) {
     return res.status(500).json({
       errors: ["an internal server error occurred"],
     });
