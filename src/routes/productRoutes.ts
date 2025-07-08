@@ -1,9 +1,9 @@
 import express from "express";
-import product from "../models/product";
+import Product from "../models/product";
 
 const router = express.Router();
 
-router.post("/api/products", async (req, res) => {
+router.post("/", async (req, res) => {
   const { name, description, price, quantity } = req.body;
 
   const errors = [];
@@ -26,7 +26,7 @@ router.post("/api/products", async (req, res) => {
   }
 
   try {
-    const existingProduct = await product.findOne({ name: name });
+    const existingProduct = await Product.findOne({ name: name });
 
     if (existingProduct) {
       return res.status(409).json({
@@ -34,7 +34,7 @@ router.post("/api/products", async (req, res) => {
       });
     }
 
-    const newProduct = new product({
+    const newProduct = new Product({
       name,
       description,
       price,
@@ -47,6 +47,36 @@ router.post("/api/products", async (req, res) => {
     return res.status(500).json({
       errors: ["an internal server error occurred"],
     });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const product = await Product.findById(id);
+
+    if (!product) {
+      return res.status(404).json({
+        errors: ["product not found"],
+      });
+    }
+
+    return res.status(200).json(product);
+  } catch (error) {
+    return res.status(500).json({
+      errors: ["an internal server error occurred"],
+    });
+  }
+});
+
+router.get("/", async (req, res) => {
+  try {
+    const products = await Product.find();
+
+    res.status(200).json({ data: products });
+  } catch (error) {
+    res.status(500).json({ errors: ["an internal server error occurred"] });
   }
 });
 

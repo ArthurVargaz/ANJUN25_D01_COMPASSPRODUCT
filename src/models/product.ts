@@ -34,4 +34,4 @@ const productSchema = new mongoose.Schema({
 
 productSchema.plugin(AutoIncrement, { inc_field: "id" });
 
-export default mongoose.model("product", productSchema);
+export default mongoose.model("Product", productSchema);
