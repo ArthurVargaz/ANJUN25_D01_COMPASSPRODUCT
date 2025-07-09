@@ -1,7 +1,7 @@
 ### LIST ALL PRODUCTS
 GET http://localhost:3000/api/products
 ### LIST PRODUCT BY ID
-GET http://localhost:3000/api/products/686ea555594c1894fafcb663
+GET http://localhost:3000/api/products/686ea719594c1894fafcb676
 ### CREATE PRODUCT
 POST http://localhost:3000/api/products
 Content-Type: application/json
@@ -14,15 +14,15 @@ Content-Type: application/json
 }
 
 ### DELETE http://localhost:3000/api/products/ + (PRODUCT ID)
-DELETE http://localhost:3000/api/products/686ea555594c1894fafcb663
+DELETE http://localhost:3000/api/products/686ea74c594c1894fafcb680
 
 ### PATCH http://localhost:3000/api/products/ + (PRODUCT ID)  ---- (THE PARAMETERS YOU WANT TO EDIT ARE OPTIONAL)
 PATCH http://localhost:3000/api/products/686ea719594c1894fafcb676
 Content-Type: application/json
 
 {
-    "name": "Bola",
-    "description": "Bola de futebol",
-    "price": 30,
-    "quantity": 4400
+    "name": "Chuveiro",
+    "description": "Lorenzetti Loren Shower 7500w",
+    "price": 150,
+    "quantity": 300
 }
