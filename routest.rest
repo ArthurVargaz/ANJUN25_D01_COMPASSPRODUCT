@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 
 ### DELETE http://localhost:3000/api/products/ + (PRODUCT ID)
-DELETE http://localhost:3000/api/products/686ea74c594c1894fafcb680
+DELETE http://localhost:3000/api/products/686eb9df9b7eadc0fb5a8bdc
 
 ### PATCH http://localhost:3000/api/products/ + (PRODUCT ID)  ---- (THE PARAMETERS YOU WANT TO EDIT ARE OPTIONAL)
 PATCH http://localhost:3000/api/products/686ea719594c1894fafcb676

@@ -14,7 +14,8 @@ e onde está "Collection Name" coloque: products .
 ----- Entrando na pasta e rodando o projeto: -----
 
 1° - Abra o código do projeto na sua IDE
-2° - Abra outro CMD como ADM, e entre na pasta do projeto, ex: cd project\
-3° - Após, execute este comando na CMD: "node src\dist\server.js" (caso não tenha o node, baixe ele)
-4° - Se aparecer "SERVER CONNECTED" e "Database connected", está tudo funcionando
-5° - Para executar alguma operação do CRUD do projeto, entre no arquivo "routest.rest"
+2° - Abra outro CMD como ADM (além do CMD do banco de dados), e entre na pasta do projeto, ex: cd project\
+3° - Execute o comando "npm install" na CMD
+4° - Após, execute este comando na CMD: "node src\dist\server.js" (caso não tenha o node, baixe ele)
+5° - Se aparecer "SERVER CONNECTED" e "Database connected", está tudo funcionando
+6° - Para executar alguma operação do CRUD do projeto, entre no arquivo "routest.rest"
