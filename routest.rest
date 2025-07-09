@@ -1,0 +1,16 @@
+###
+GET http://localhost:3000/api/products
+###
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+    "name": "Bola",
+    "description": "Bola de futebol",
+    "price": 30,
+    "quantity": 4400
+}
+
+###
+DELETE http://localhost:3000/api/products/686ea430594c1894fafcb658
+
