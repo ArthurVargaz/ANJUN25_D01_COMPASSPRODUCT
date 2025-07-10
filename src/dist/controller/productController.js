@@ -61,8 +61,17 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 exports.createProduct = createProduct;
 const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const products = yield product_1.default.find();
-        res.status(200).json({ data: products });
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+        const skip = (page - 1) * limit;
+        const total = yield product_1.default.countDocuments();
+        const products = yield product_1.default.find().skip(skip).limit(limit);
+        res.status(200).json({
+            page,
+            total,
+            count: products.length,
+            data: products,
+        });
     }
     catch (error) {
         res.status(500).json({ errors: ["an internal server error occurred"] });
