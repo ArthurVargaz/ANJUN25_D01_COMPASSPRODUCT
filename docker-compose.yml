@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    image: arthurvargas/compassproduct:1.0
+    ports:
+      - '3000:3000'
+    environment:
+      - MONGO_CRUD=mongodb://mongo:27017/compassproduct
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

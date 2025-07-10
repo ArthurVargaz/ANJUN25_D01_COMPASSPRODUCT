@@ -1,21 +1,14 @@
-Configurar o banco de dados para aplicação: -----
-Banco de dados - MongoDB
+Como rodar o projeto: -----
 
-1° - Entrar na pasta (no CMD) onde esta instalado o mongodb no pc ex: cd /d D:\DOWNLOADS\MongoDB\Server\8.0\bin
-2° - inicializar o mongo na CMD com o comando: mongod (precisa executar como ADM o CMD). Caso tenha dado algum erro, crie essas pastas no diretório C -> C:\data\db , e execute o comando na CMD como ADM: "mongod --dbpath C:\data\db"
-3° - Após inicializar o mongod, abra o MongoDB compass
-4° - Cria uma nova conexão em "New Connection" (com o nome que desejar), sem alterar nenhuma informação
-5° - Após criar a nova conexão, clique onde esta escrito "Create database",
-onde está "Database name" coloque: compassproduct ,
-e onde está "Collection Name" coloque: products .
-6° - Sempre que fizer alguma operação do CRUD, recarregue a página no banco de dados para atualizar a tabela
-7° - Seu banco de dados está pronto
-
------ Entrando na pasta e rodando o projeto: -----
-
-1° - Abra o código do projeto na sua IDE
-2° - Abra outro CMD como ADM (além do CMD do banco de dados que está em execução), e entre na pasta do projeto, ex: cd project\
-3° - Execute o comando "npm install" na CMD
-4° - Após, execute este comando na CMD: "node src\dist\server.js" (caso não tenha o node, baixe ele)
-5° - Se aparecer "SERVER CONNECTED" e "Database connected", está tudo funcionando
-6° - Para executar alguma operação do CRUD do projeto, entre no arquivo "routest.rest" na sua IDE
+1° - Tenha o Docker, Docker compose e MongoDB compass instalados
+2° - Na o terminal (CMD) como ADMINISTRADOR, e entre no diretório onde você salvou o projeto, ex: "cd /c C:\Users\arthu\Desktop\project"
+3° - Após, execute esse comando: "docker compose up -d"
+4° - Abra o MongoDB compass
+5° - Crie uma nova conexão em "New Connection" (pode deixar todas as configurações padrão).
+6° - Após criar a conexão, clique onde esta escrito "Create database", onde está "Database name" coloque: "compassproduct" ,
+e onde está "Collection Name" coloque: "products"
+7° - Sempre que fizer alguma operação do CRUD, recarregue a página no MongoDB para atualizar a tabela
+8° - Seu banco de dados está pronto
+9° - Abra o código do projeto na sua IDE
+10° - Para testar as rotas do CRUD, utilize o arquivo routest.rest na sua IDE
+11° - Para parar o docker, use este comando no terminal: "docker compose stop"

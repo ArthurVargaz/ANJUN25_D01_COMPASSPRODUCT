@@ -3,23 +3,23 @@ GET http://localhost:3000/api/products
 ### LIST ALL PRODUCTS - SELECT PAGE AND LIMIT
 GET http://localhost:3000/api/products?page=3&limit=5
 ### LIST PRODUCT BY ID
-GET http://localhost:3000/api/products/686ea719594c1894fafcb676
+GET http://localhost:3000/api/products/687002d3d5b648bc4495b8ba
 ### CREATE PRODUCT
 POST http://localhost:3000/api/products
 Content-Type: application/json
 
 {
-    "name": "desasd",
-    "description": "Bola de futebol",
+    "name": "lupa",
+    "description": "rosa",
     "price": 30,
     "quantity": 4400
 }
 
 ### DELETE http://localhost:3000/api/products/ + (PRODUCT ID)
-DELETE http://localhost:3000/api/products/686ea719594c1894fafcb676
+DELETE http://localhost:3000/api/products/687002bcd5b648bc4495b8b2
 
 ### PATCH http://localhost:3000/api/products/ + (PRODUCT ID)  ---- (THE PARAMETERS YOU WANT TO EDIT ARE OPTIONAL)
-PATCH http://localhost:3000/api/products/686ea719594c1894fafcb676
+PATCH http://localhost:3000/api/products/687002e3d5b648bc4495b8c4
 Content-Type: application/json
 
 {

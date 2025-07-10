@@ -23,5 +23,8 @@
     "passport": "^0.7.0",
     "protobufjs": "^7.5.3",
     "semver": "^7.7.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
   }
 }

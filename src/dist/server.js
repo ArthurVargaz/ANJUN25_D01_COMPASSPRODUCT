@@ -15,7 +15,7 @@ app.use(express_1.default.json());
 mongoose_1.default
     .connect(mongo)
     .then(() => console.log("Database connected"))
-    .catch((err) => console.error("MongoDB connection error: ", err));
+    .catch((error) => console.error("MongoDB connection error: ", error));
 app.use("/api/products", productRoutes_1.default);
 app.listen(3000, () => {
     console.log("SERVER CONNECTED");

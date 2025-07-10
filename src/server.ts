@@ -12,7 +12,9 @@ app.use(express.json());
 mongoose
   .connect(mongo)
   .then(() => console.log("Database connected"))
-  .catch((err: any): void => console.error("MongoDB connection error: ", err));
+  .catch((error: any): void =>
+    console.error("MongoDB connection error: ", error)
+  );
 
 app.use("/api/products", productRoutes);
 
