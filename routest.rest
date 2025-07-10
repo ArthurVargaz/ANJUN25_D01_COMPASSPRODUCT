@@ -1,5 +1,7 @@
-### LIST ALL PRODUCTS
+### LIST ALL PRODUCTS - PAGE = 1 / LIMIT = 10
 GET http://localhost:3000/api/products
+### LIST ALL PRODUCTS - SELECT PAGE AND LIMIT
+GET http://localhost:3000/api/products?page=2&limit=5
 ### LIST PRODUCT BY ID
 GET http://localhost:3000/api/products/686ea719594c1894fafcb676
 ### CREATE PRODUCT

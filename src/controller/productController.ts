@@ -50,9 +50,19 @@ export const createProduct = async (req: Request, res: Response) => {
 
 export const getProducts = async (req: Request, res: Response) => {
   try {
-    const products = await Product.find();
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const skip = (page - 1) * limit;
 
-    res.status(200).json({ data: products });
+    const total = await Product.countDocuments();
+    const products = await Product.find().skip(skip).limit(limit);
+
+    res.status(200).json({
+      page,
+      total,
+      count: products.length,
+      data: products,
+    });
   } catch (error: any) {
     res.status(500).json({ errors: ["an internal server error occurred"] });
   }
