@@ -1,6 +1,6 @@
 Como rodar o projeto: -----
 
-1° - Tenha o Docker, Docker compose e MongoDB Compass instalados
+´1° - Tenha o Docker, Docker compose e MongoDB Compass instalados´
 2° - Inicie o Docker desktop no seu computador
 3° - No terminal (CMD) como ADMINISTRADOR, execute o comando "git clone https://github.com/ArthurVargaz/ANJUN25_D01_COMPASSPRODUCT"
 4° - Após, acesse a pasta do projeto: "cd ANJUN25_D01_COMPASSPRODUCT" e execute este comando: "docker-compose up -d"
